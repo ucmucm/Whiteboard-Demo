@@ -77,6 +77,7 @@ document.body.addEventListener('touchmove',function(e){
       x1: x1 / w,
       y1: y1 / h,
       color: color
+      linewi: linewi
     });
   }
 
