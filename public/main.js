@@ -60,6 +60,7 @@ document.body.addEventListener('touchmove',function(e){
     context.moveTo(x0, y0);
     context.lineTo(x1, y1);
     context.strokeStyle = color;
+    linewi = document.getElementById("lineWidth").value;
     if (color != 'white')
       // context.lineWidth = 2;
       context.lineWidth = linewi;
