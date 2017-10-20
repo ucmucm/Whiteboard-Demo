@@ -31,7 +31,7 @@ function Drawmove(evt){
   evt.preventDefault();
   if(!drawing){return;}
   linewi = document.getElementById("lineWidth").value;
-  drawLine(current.x, current.y, evt.touches[0].pageX, evt.touches[0].pageY, current.color, true);
+  drawLine(current.x, current.y, evt.touches[0].pageX, evt.touches[0].pageY, current.color,linewi, true);
   current.x = evt.touches[0].pageX;
   current.y = evt.touches[0].pageY;
 }
@@ -55,12 +55,11 @@ document.body.addEventListener('touchmove',function(e){
   onResize();
 
 
-  function drawLine(x0, y0, x1, y1, color, emit){
+  function drawLine(x0, y0, x1, y1, color, linewi, emit){
     context.beginPath();
     context.moveTo(x0, y0);
     context.lineTo(x1, y1);
     context.strokeStyle = color;
-    linewi = document.getElementById("lineWidth").value;
     if (color != 'white')
       // context.lineWidth = 2;
       context.lineWidth = linewi;
@@ -92,13 +91,13 @@ document.body.addEventListener('touchmove',function(e){
     if (!drawing) { return; }
     drawing = false;
     linewi = document.getElementById("lineWidth").value;
-    drawLine(current.x, current.y, e.clientX, e.clientY, current.color, true);
+    drawLine(current.x, current.y, e.clientX, e.clientY, current.color,linewi, true);
   }
 
   function onMouseMove(e){
     if (!drawing) { return; }
     linewi = document.getElementById("lineWidth").value;
-    drawLine(current.x, current.y, e.clientX, e.clientY, current.color, true);
+    drawLine(current.x, current.y, e.clientX, e.clientY, current.color,linewi, true);
     current.x = e.clientX;
     current.y = e.clientY;
   }
@@ -127,7 +126,7 @@ document.body.addEventListener('touchmove',function(e){
   function onDrawingEvent(data){
     var w = canvas.width;
     var h = canvas.height;
-    drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color);
+    drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color, data.linewi);
   }
 
   // make the canvas fill its parent
