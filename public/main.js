@@ -56,13 +56,17 @@ document.body.addEventListener('touchmove',function(e){
 
 
   function drawLine(x0, y0, x1, y1, color, linewi, emit){
+    context.fillStyle = color;
+    context.beginPath();
+    context.arc(x0,y0,linewi/2,0,Math.PI*2);
+    context.closePath();
+    context.fill();
     context.beginPath();
     context.moveTo(x0, y0);
     context.lineTo(x1, y1);
     context.strokeStyle = color;
-    if (color != 'white')
-      context.lineWidth = linewi;
-    else context.lineWidth = 50;
+    context.lineJoin = "round";
+    context.lineWidth = linewi;
     context.stroke();
     context.closePath();
 
@@ -82,8 +86,8 @@ document.body.addEventListener('touchmove',function(e){
 
   function onMouseDown(e){
     drawing = true;
-    current.x = e.clientX;
-    current.y = e.clientY;
+    current.x = e.clientX-e.target.offsetLeft;
+    current.y = e.clientY-e.target.offsetTop;
     linewi = document.getElementById("lineWidth").value;
   }
 
@@ -97,9 +101,10 @@ document.body.addEventListener('touchmove',function(e){
   function onMouseMove(e){
     if (!drawing) { return; }
     linewi = document.getElementById("lineWidth").value;
-    drawLine(current.x, current.y, e.clientX, e.clientY, current.color,linewi, true);
-    current.x = e.clientX;
-    current.y = e.clientY;
+    // drawLine(current.x, current.y, e.clientX, e.clientY, current.color,linewi, true);
+    drawLine(current.x, current.y, e.clientX-e.target.offsetLeft, e.clientY-e.target.offsetTop, current.color,linewi, true);
+    current.x = e.clientX-e.target.offsetLeft;
+    current.y = e.clientY-e.target.offsetTop;
   }
 
   function onColorUpdate(e){
