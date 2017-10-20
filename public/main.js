@@ -24,11 +24,13 @@ function Drawstart(evt){
   drawing = true;
   current.x = evt.touches[0].pageX;
   current.y = evt.touches[0].pageY;
+  linewi = document.getElementById("lineWidth").value;
 }
 
 function Drawmove(evt){
   evt.preventDefault();
   if(!drawing){return;}
+  linewi = document.getElementById("lineWidth").value;
   drawLine(current.x, current.y, evt.touches[0].pageX, evt.touches[0].pageY, current.color, true);
   current.x = evt.touches[0].pageX;
   current.y = evt.touches[0].pageY;
