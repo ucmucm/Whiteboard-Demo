@@ -61,7 +61,6 @@ document.body.addEventListener('touchmove',function(e){
     context.lineTo(x1, y1);
     context.strokeStyle = color;
     if (color != 'white')
-      // context.lineWidth = 2;
       context.lineWidth = linewi;
     else context.lineWidth = 50;
     context.stroke();
@@ -76,8 +75,8 @@ document.body.addEventListener('touchmove',function(e){
       y0: y0 / h,
       x1: x1 / w,
       y1: y1 / h,
-      color: color
-      linewi: linewi
+      color: color,
+      linewi: linewi 
     });
   }
 
