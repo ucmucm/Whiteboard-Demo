@@ -10,6 +10,10 @@ Add Eraser;
 
 ```
 $ node index.js
+
+or
+
+$ npm start
 ```
 
 And point your browser to `http://localhost:3000`. Optionally, specify
