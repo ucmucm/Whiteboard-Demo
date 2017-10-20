@@ -5,6 +5,7 @@
   var socket = io();
   var canvas = document.getElementsByClassName('whiteboard')[0];
   var colors = document.getElementsByClassName('color');
+  var linewi = document.getElementById("lineWidth").value;
   var context = canvas.getContext('2d');
 
   var current = {
@@ -42,7 +43,7 @@ document.body.addEventListener('touchmove',function(e){
 
 
 
-  for (var i = 0; i < colors.length; i++){
+  for (var i = 0; i < colors.length-1; i++){
     colors[i].addEventListener('click', onColorUpdate, false);
   }
 
@@ -58,7 +59,8 @@ document.body.addEventListener('touchmove',function(e){
     context.lineTo(x1, y1);
     context.strokeStyle = color;
     if (color != 'white')
-      context.lineWidth = 2;
+      // context.lineWidth = 2;
+      context.lineWidth = linewi;
     else context.lineWidth = 50;
     context.stroke();
     context.closePath();
@@ -80,16 +82,19 @@ document.body.addEventListener('touchmove',function(e){
     drawing = true;
     current.x = e.clientX;
     current.y = e.clientY;
+    linewi = document.getElementById("lineWidth").value;
   }
 
   function onMouseUp(e){
     if (!drawing) { return; }
     drawing = false;
+    linewi = document.getElementById("lineWidth").value;
     drawLine(current.x, current.y, e.clientX, e.clientY, current.color, true);
   }
 
   function onMouseMove(e){
     if (!drawing) { return; }
+    linewi = document.getElementById("lineWidth").value;
     drawLine(current.x, current.y, e.clientX, e.clientY, current.color, true);
     current.x = e.clientX;
     current.y = e.clientY;
