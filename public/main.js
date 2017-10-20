@@ -7,8 +7,6 @@
   var colors = document.getElementsByClassName('color');
   var context = canvas.getContext('2d');
 
-  document.body.appendChild(canvas);
-
   var current = {
     color: 'black'
   };
@@ -59,7 +57,9 @@ document.body.addEventListener('touchmove',function(e){
     context.moveTo(x0, y0);
     context.lineTo(x1, y1);
     context.strokeStyle = color;
-    context.lineWidth = 2;
+    if (color != 'white')
+      context.lineWidth = 2;
+    else context.lineWidth = 50;
     context.stroke();
     context.closePath();
 
