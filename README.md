@@ -1,12 +1,15 @@
 
-# Socket.IO Collaborative Whiteboard
+# Socket.IO Whiteboard
 
-A simple collaborative whiteboard for socket.io
+Update:
+
+Support Touchscreen;
+Add Eraser;
 
 ## How to use
 
 ```
-$ npm i && npm start
+$ node index.js
 ```
 
 And point your browser to `http://localhost:3000`. Optionally, specify
