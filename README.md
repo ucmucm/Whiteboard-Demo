@@ -5,6 +5,7 @@ Update:
 
 Support Touchscreen;    
 Add Eraser;    
+Add Color Panel;      
 
 [Website Demo](http://b.ooo.mn/)
 
