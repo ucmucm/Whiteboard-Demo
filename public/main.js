@@ -108,11 +108,17 @@ document.body.addEventListener('touchmove',function(e){
   }
 
   function onColorUpdate(e){
-    if ( e.target.className.split(' ')[1] != 'eraser'){
-      current.color = e.target.className.split(' ')[1];
+    if ( e.target.className.split(' ')[1] == 'eraser'){
+        current.color = 'white';
+    }
+    else if(e.target.className.split(' ')[1] == 'panel'){
+      document.getElementById('colorPanel').click();
+      document.getElementById('colorPanel').onchange = function(){
+        current.color = this.value;
+      }
     }
     else
-    current.color = 'white';
+    current.color = e.target.className.split(' ')[1];
   }
 
   // limit the number of events per second

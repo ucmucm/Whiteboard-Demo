@@ -48,6 +48,7 @@ html, body {
 .color.orange { background-color: orange; }
 .color.yellow { background-color: yellow; }
 .color.purple { background-color: purple;  }
+.color.panel { background-image: url(color.png);  }
 .color.eraser { background-image: url(eraser.png); }
 
 .color.center {
