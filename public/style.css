@@ -44,9 +44,11 @@ html, body {
 .color.red { background-color: red; }
 .color.green { background-color: green; }
 .color.blue { background-color: blue; }
+.color.brown { background-color: brown; }
+.color.orange { background-color: orange; }
 .color.yellow { background-color: yellow; }
-.color.eraser { 
-  background-image: url(eraser.png); }
+.color.purple { background-color: purple;  }
+.color.eraser { background-image: url(eraser.png); }
 
 .color.center {
     box-sizing: border-box;
