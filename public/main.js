@@ -58,7 +58,7 @@ document.body.addEventListener('touchmove',function(e){
   function drawLine(x0, y0, x1, y1, color, linewi, emit){
     context.fillStyle = color;
     context.beginPath();
-    context.arc(x0,y0,linewi/2,0,Math.PI*2);
+    context.arc(x1,y1,linewi/2,0,Math.PI*2);
     context.closePath();
     context.fill();
     context.beginPath();
